@@ -1,3 +1,5 @@
+const User = require('../models/User');
+
 exports.index = (req, res) => {
 	res.send('USERS INDEX');
 };
