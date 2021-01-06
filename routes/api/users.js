@@ -16,6 +16,6 @@ router.patch('/:id', users_ctr.updateUser);
 //router.put('/', users_ctr.index);
 
 //DELETE
-router.delete('/', users_ctr.index);
+router.delete('/', users_ctr.deleteUser);
 
 module.exports = router;
