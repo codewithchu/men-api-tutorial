@@ -41,3 +41,19 @@ exports.singleUser = async (req, res) => {
 		res.status(400).json({ msg: err });
 	}
 };
+
+//CRUD Update
+exports.updateUser = async (req, res) => {
+	try {
+		const query = await User.findByIdAndUpdate(
+			req.params.id,
+			{
+				$set: req.body,
+			},
+			{ new: true }
+		);
+		res.status(200).json(query);
+	} catch (err) {
+		res.status(400).json({ msg: err });
+	}
+};

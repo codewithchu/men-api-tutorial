@@ -12,7 +12,7 @@ router.get('/:id', users_ctr.singleUser); //GET http://localhost:3000/api/users/
 // router.get(['/', '/list'], users_ctr.listAll); //GET http://localhost:3000/api/users/list
 
 //UPDATE
-router.patch('/', users_ctr.index);
+router.patch('/:id', users_ctr.updateUser);
 //router.put('/', users_ctr.index);
 
 //DELETE
