@@ -4,10 +4,7 @@ exports.index = (req, res) => {
 	res.send('USERS INDEX');
 };
 
-exports.listAll = (req, res) => {
-	res.send('LIST ALL USERS');
-};
-
+//CRUD CREATE
 exports.createUser = async (req, res) => {
 	const user = new User({
 		name: req.body.name,
@@ -20,13 +17,27 @@ exports.createUser = async (req, res) => {
 	} catch (err) {
 		res.status(400).json({ msg: err });
 	}
+};
 
-	// user
-	// 	.save()
-	// 	.then((data) => {
-	// 		res.status(201).json(user);
-	// 	})
-	// 	.catch((err) => {
-	// 		res.status(400).json({ msg: err });
-	// 	});
+//CRUD - READ
+exports.listAll = async (req, res) => {
+	try {
+		const query = await User.find();
+		res.status(200).json(query);
+	} catch (err) {
+		res.status(400).json({ msg: err });
+	}
+};
+
+exports.singleUser = async (req, res) => {
+	// res.send(req.params.id);
+	try {
+		const query = await User.findById(req.params.id);
+		if (!query) {
+			res.status(400).json({ msg: 'invalid user' });
+		}
+		res.status(200).json(query);
+	} catch (err) {
+		res.status(400).json({ msg: err });
+	}
 };

@@ -6,8 +6,10 @@ const users_ctr = require('../../controllers/users');
 router.post('/', users_ctr.createUser); //POST http://localhost:3000/api/users/
 
 //READ
-router.get('/', users_ctr.index); //GET http://localhost:3000/api/users/
-router.get('/list', users_ctr.listAll);
+router.get('/', users_ctr.listAll); //GET http://localhost:3000/api/users/
+router.get('/:id', users_ctr.singleUser); //GET http://localhost:3000/api/users/:id
+// router.get('/list', users_ctr.listAll); //GET http://localhost:3000/api/users/list
+// router.get(['/', '/list'], users_ctr.listAll); //GET http://localhost:3000/api/users/list
 
 //UPDATE
 router.patch('/', users_ctr.index);
